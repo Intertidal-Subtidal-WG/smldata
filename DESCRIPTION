@@ -1,0 +1,15 @@
+Package: smldata
+Title: Data from sampling programs on and near the Shoals Marine Lab
+Version: 0.0.0.9000
+Authors@R: 
+    person("Jarrett", "Byrnes", , "jarrett.byrnes@umb.edu", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-9791-9472"))
+Description: This package contains multiple different datasets from the Shoals
+            marine laboratory.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Depends: 
+    R (>= 2.10)
