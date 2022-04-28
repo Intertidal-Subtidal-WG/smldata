@@ -22,11 +22,18 @@ sml_intertidal_cover <- sml_intertidal_cover_raw %>%
   intertidal_filter %>%
   #some specific corrections for bad data
   mutate(value = ifelse((intertidal_transect==15 &
-                         year==1998 &
-                         replicate ==2 &
-                         level == 7 &
-                         organism == "Semibalanus balanoides"),
+                           year==1998 &
+                           replicate ==2 &
+                           level == 7 &
+                           organism == "Semibalanus balanoides"),
                         75, #100 - mussels - fucus primary
+                        value),
+         value = ifelse((intertidal_transect==15 &
+                           year==1990 &
+                           replicate == 1 &
+                           level == 15 &
+                           organism == "Arthopyrenia"),
+                        100 - 43, #100 - barnacles
                         value))
 
 
