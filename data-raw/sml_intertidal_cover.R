@@ -19,6 +19,15 @@ sml_intertidal_cover_raw <- read_csv("https://github.com/brianscheng/SEED/blob/m
 sml_intertidal_cover <- sml_intertidal_cover_raw %>%
   fix_intertidal_organisms %>%
   transect_translate %>%
-  intertidal_filter
+  intertidal_filter %>%
+  #some specific corrections for bad data
+  mutate(value = ifelse((intertidal_transect==15 &
+                         year==1998 &
+                         replicate ==2 &
+                         level == 7 &
+                         organism == "Semibalanus balanoides"),
+                        75, #100 - mussels - fucus primary
+                        value))
+
 
 usethis::use_data(sml_intertidal_cover, overwrite = TRUE)
