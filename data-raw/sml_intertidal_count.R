@@ -13,7 +13,10 @@ sml_intertidal_count_raw <- read_csv("https://github.com/brianscheng/SEED/blob/m
   select(-starts_with("X")) %>%
   mutate(Measure = "Count", Protocol = "Intertidal_Count") %>%
   rename(Value = Count) %>%
-  mutate(Replicate = as.character(Replicate))
+  mutate(Replicate = as.character(Replicate)) %>%
+  mutate(Organism = ifelse(Organism == "Tectura testinalis", "Testudinalia testudinalis", Organism))
+
+
 
 # add in additional info
 sml_intertidal_count <- sml_intertidal_count_raw %>%
